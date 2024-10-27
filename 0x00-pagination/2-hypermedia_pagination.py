@@ -18,7 +18,8 @@ def index_range(page: int, page_size: int) -> tuple:
     respectively
     """
     return page * page_size - page_size, page * page_size
- 
+
+
 class Server:
     """
     Server class to paginate a database of popular
@@ -64,7 +65,7 @@ class Server:
         except Exception as e:
             return page_contents
 
-    def get_hyper(self, page: int=1, page_size: int=10) -> dict:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
         """
         method that takes 2 integer value as argument and
         returns a dictionary containing more detailed data
@@ -76,8 +77,8 @@ class Server:
         prev_page = page - 1 if page in range(2, data_len) else None
         total_pages = math.ceil(data_len / page_size)
         page_size = page_size if page in range(total_pages) else 0
-        next_page = None if page_size == 0 else  next_page
-        
+        next_page = None if page_size == 0 else next_page
+
 
         return {
             "page_size": page_size, "page": page, "data": data, "next_page": next_page, "prev_page": prev_page, "total_pages": total_pages

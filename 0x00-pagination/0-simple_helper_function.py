@@ -4,6 +4,7 @@ module that holds an index_range functionthat returns
 a tuple indicating the page number and the page size
 """
 
+
 def index_range(page: int, page_size: int) -> tuple:
     """
     function that takes 2 integer value as arguments
@@ -12,4 +13,3 @@ def index_range(page: int, page_size: int) -> tuple:
     respectively
     """
     return page * page_size - page_size, page * page_size
- 
