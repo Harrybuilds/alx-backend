@@ -42,7 +42,7 @@ class Server:
             }
         return self.__indexed_dataset
 
-     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+    def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
         method that takes two integer arguments page
         with default value 1 and page_size with default
@@ -65,17 +65,27 @@ class Server:
         except Exception as e:
             return page_contents
 
-    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
-        assert isinstance(index, int)
-        next_index =
-        
+    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict[str, Any]:
+        assert isinstance(index, int) and index >= 0
+        assert isinstance(page_size, int) and page_size > 0
+
+        dataset = self.indexed_dataset()
+        data = []
+        current_index = index
+        collected = 0
+
+        # Collect page_size items, skipping any deleted indexes
+        while collected < page_size and current_index < len(dataset):
+            if current_index in dataset:
+                data.append(dataset[current_index])
+                collected += 1
+            current_index += 1
+
+        next_index = current_index
+
         return {
-            'index': index,
-            'next_index': next_index,
-            'page_size': page_size,
-            'data': self.get_page(index, page_size)
+            "index": index,
+            "data": data,
+            "page_size": page_size,
+            "next_index": next_index
         }
-
-
-server = Server()
-print(server.indexed_dataset())
