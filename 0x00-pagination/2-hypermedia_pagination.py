@@ -79,7 +79,11 @@ class Server:
         page_size = page_size if page in range(total_pages) else 0
         next_page = None if page_size == 0 else next_page
 
-
         return {
-            "page_size": page_size, "page": page, "data": data, "next_page": next_page, "prev_page": prev_page, "total_pages": total_pages
+            "page_size": page_size,
+            "page": page,
+            "data": data,
+            "next_page": next_page,
+            "prev_page": prev_page,
+            "total_pages": total_pages
         }
