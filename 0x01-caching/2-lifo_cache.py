@@ -30,7 +30,7 @@ class LIFOCache(BaseCaching):
             self.cache_data[key] = item
         else:
             last_item = next(iter(self.cache_data.popitem()))
-            print('DISCARD', last_item[0])
+            print('DISCARD:', last_item[0])
             self.cache_data[key] = item
 
     def get(self, key):
