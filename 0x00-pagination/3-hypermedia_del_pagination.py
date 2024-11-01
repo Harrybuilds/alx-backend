@@ -65,7 +65,7 @@ class Server:
         except Exception as e:
             return page_contents
 
-    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict[str, Any]:
+    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         assert isinstance(index, int) and index >= 0
         assert isinstance(page_size, int) and page_size > 0
 
