@@ -7,6 +7,7 @@ that inherits from the BaseCaching
 
 from base_caching import BaseCaching
 
+
 class FIFOCache(BaseCaching):
     """
     This class defines the FIFICache
@@ -45,4 +46,3 @@ class FIFOCache(BaseCaching):
             return None
         else:
             return self.cache_data.get(key)
-        

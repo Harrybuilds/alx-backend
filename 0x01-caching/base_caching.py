@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-""" 
+"""
 BaseCaching module
 """
+
 
 class BaseCaching():
     """ BaseCaching defines:
@@ -23,7 +24,7 @@ class BaseCaching():
             print("{}: {}".format(key, self.cache_data.get(key)))
 
     def put(self, key, item):
-        """ 
+        """
         Add an item in the cache
         """
         raise NotImplementedError("put must be implemented in your cache class")
